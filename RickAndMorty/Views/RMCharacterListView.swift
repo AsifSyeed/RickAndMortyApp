@@ -1,5 +1,5 @@
 //
-//  CharacterListView.swift
+//  RMCharacterListView.swift
 //  RickAndMorty
 //
 //  Created by Asif Reddot on 15/5/24.
@@ -8,9 +8,9 @@
 import UIKit
 
 /// View that shows character list received from API
-final class CharacterListView: UIView {
+final class RMCharacterListView: UIView {
     
-    private let viewModel = CharacterListViewViewModel()
+    private let viewModel = RMCharacterListViewViewModel()
     
     private let spinner: UIActivityIndicatorView = {
         let spinner = UIActivityIndicatorView(style: .large)
@@ -28,8 +28,10 @@ final class CharacterListView: UIView {
         collectionView.isHidden = true
         collectionView.alpha = 0
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.register(UICollectionViewCell.self,
-                                forCellWithReuseIdentifier: "cell")
+        collectionView.register(
+            RMCharacterCollectionViewCell.self,
+            forCellWithReuseIdentifier: RMCharacterCollectionViewCell.cellIdentifier
+        )
         
         return collectionView
     }()
